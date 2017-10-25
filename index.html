@@ -1,64 +1,308 @@
 <!doctype html><head><script src="eveal.js"></script></head><body>
 
-
-# Talk
-### with slides
+# TV Archives cracked open - "AI for IA"
+## Artificial Intelligence for Internet Archive
+### MozFest, London</br>Oct 2017
 
 <small>
-  by me
+  by
+  [traceypooh](https://twitter.com/tracey_pooh)
+  <a href="https://github.com/traceypooh"><img style="margin:0" src="git.png"/></a>
   <br/>
-
-  Sometime 2017
 </small>
+
+```bash
+git clone https://github.com/traceypooh/mozfest17; open mozfest17/index.html
+```
+
+
+<a href="https://archive.org">
+  <img src="https://archive.org/images/glogo.png" style="position:fixed; bottom:0; left:10%;"/>
+</a>
+<a href="https://archive.org/tv">
+  <img src="https://archive.org/images/xxx.png" style="position:fixed; bottom:0; left:80%;"/>
+</a>
 
 <small>
-  _?_ for keyboard shortcuts<br/>
+  _?_ for key shortcuts
 </small>
 
 ---
-### Run these slides Locally
 
-``` bash
-git clone https://github.com/traceypooh/eveal.js; open eveal.js/index.html
+# Gist
+_decentralized research and IA built on top of a stable, untampered, worldwide TV library recordings_
+
+---
+# Intro to archive.org
+- WayBack Machine
+  - past copies of xxx500B pages/sites xxx
+  - xxx image
+
+- 5M books xxx
+  - xxx BR image
+
+- xxxM videos, xxxm M audio & live concerts
+  - xxx image
+
+- Software emulation
+  - xxx image
+
+# Library!
+- Absolute browser Privacy
+  - no personal data or IP addresses extracted.
+- Validation & nontampering
+  - keep original versions with 2+ checksums and logs
+```xml
+xxx <file>
+```
+  - external blockchain of proofs of file mod times and checksums
+    - xxx name?
+
+
+---
+# archive.org/tv
+  - recording 50 - 100 channels
+    - 24 x 7
+    - around the world
+    - since 2000
+  - 2 million news shows
+  - search captions/metadata
+  - new Trump and Congress subsets
+  - citable reference clips
+  - Popcorn editing clips
+  - for AI experiments
+
+---
+# Artificial Intelligence
+- text: chyron ("lower third") scanning OCR
+- image: public officials facial detection
+- audio: fingerprints
+  - audfprint
+    - free/open like shazam
+- text: caption correction & alignment
+  - OCR of DVB-S
+    - BBC News
+  - STT/ASR
+    - Al Jazeera English
+    - Deutsche Welle English
+- twitter and slack bots with results
+- continuous captions feed from CSPAN
+
+
+---
+<img style="height:155px" src="https://archive.org/download/third-eye/third-eye.png"/>
+- OCR 'lower third'
+  - chyrons
+    - overlaid text on broadcasts
+    - not captions or descriptive text
+    - editorial / summarizing in nature
+- 4 TV channels, 24x7, ~1 min from realtime
+  - CNN
+  - MSNBC
+  - Fox News
+  - BBC News
+
+---
+<div style="max-width:500px; margin:auto">
+  <img src="https://archive.org/download/third-eye/xmsn-full.png"/>
+  <img src="down.png"/>
+  <img src="https://archive.org/download/third-eye/xmsn.png"/>
+  <img src="down.png"/>
+  <pre>
+  AFTER WH MEETING, SCHUMER DISHES
+  WHEN HE THOUGHT NIC WAS OFF
+  </pre>
+</div>
+---
+# bots  
+- twitter bots
+  - https://twitter.com/tvThirdEye
+    - https://twitter.com/tvThirdEyeB
+    - https://twitter.com/tvThirdEyeF
+    - https://twitter.com/tvThirdEyeM
+  - https://twitter.com/tvThirdEye/lists/all
+
+---
+<img src="https://archive.org/download/third-eye/tweet.png"/>
+
+---
+# API
+- Tab Separated Values
+- https://archive.org/services/third-eye.php
+  - nice for command-line
+  - import to google and excel spreadsheets
+  - filtered
+  - raw (~25MB / day)
+    - more errors
+    - 3rd-party filtering possible
+  - TSV files uploaded to https://archive.org/details/third-eye
+
+---
+# Chyron filtering
+- tesseract OCR
+  - free; errors
+- simhash
+  - groups 'nearly the same'
+    - character flips
+    - word off in time
+- look for vowels
+- pick 'most seen' group every minute
+  - and tweet
+
+---
+# TV AI Examples
+- Vox determined Puerto Rico was paid little attention by Fox News
+  - https://vox.com/2017/10/2/16401614/fox-news-puerto-rico-charts
+- audio fingerprints
+  - presented keynote paper on CSPAN floor speeches and vocal pitch (UIowa)
+  - discovered 375K political Ads
+  - find sound bites of speeches
+- Faceomatic - find appearances of US Govt officials in TV (facial recognition)
+
+---
+# Where We're Going
+- https://archive.org/details/TVNewsKitchen
+- want to serve journalists, researchers, librarians & more
+- responsible behavior and access to data
+- non-consumptive use
+
+
+xxx
+We can store and search arbitrary metadata (eg: <detected-person>..) as a JSON "clip" with start/end time ranges; can track play counts, referers/embeders.
+HELP US shape our API to play with TV, tag clips with metadata or pointers to Decentralized metadata, AI ideas, and more!
+
+
+xxx
+audio fingerprinting (Duplitron)
+face detection and tracking of public figures (Faceomatic)
+TV clip-based JSON format metadata
+# [part 2] "There Goes 2 Weeks -- deep dive into image matching and facial recognition"
+  - slide on Rik & ideas w/ link to Decentralized talk
+  - 3 concat vectors for shot clustering and scene detection
+    - .. for Ad insertion!
+- pixel diff algorithms
+- perceptual hashing
+  - show full => 8x8 grayscale faces xxx
+    - explain _then_ convolved (?) to 64bit number
+      - that hamming distance can be used on pairs
+
+---
+# tensorflow & training sets
+  - https://www.tensorflow.org/tutorials/image_recognition
+  - trained CNNs, locally run
+  - GoogLeNet Inception general classifier
+  - retrainable / customizable
+    - redo 'top layer'
+    - https://www.tensorflow.org/tutorials/image_retraining
+  - 2048 multi-byte vectors
+  - iOS smaller single-byte vectors
+  - cosine distance comparisons
+
+---
+# OpenFace implementation of FaceNet
+  - http://cmusatyalab.github.io/openface/demo-3-classifier
+  - similar to tensorflow (Torch..)
+  - 3+ images per person/face
+    - align eyes + nose (nostrils?)
+    - avoid 'overfit'
+---
+# Siamese "one shot" CNN recognizers
+  - https://github.com/traceypooh/Facial-Similarity-with-Siamese-Networks-in-Pytorch
+
+---
+# AI Ethics
+- face tracking only public figures
+- open discussion
+
+---
+# Demo Time xxx (cable? xxx; rebuild to phone xxx!)
+- miniARchive
+- tensorflow
+- google translate
+
+---
+IA TV as reference news archive
+  - recording ~60 channels 24x7 since 2000
+  - 2m+ US news shows
+  - special collection subsets (trump and admin, US congress)
+  - for validation of nontampering:
+    - we keep the original broadcast version (alongside web-friendly video)
+    - we keep checksums and logs/provenance
+    - absolute browser Privacy (client IP addresses one-way hashed)
+
+  - caption & metadata based searching
+  - chyron scanning OCR (editorial content?)
+  - facial detection
+  - caption correction & alignment
+  - popcorn editing & mashups of clips
+    - https://archive.org/pop
+    - https://github.com/mozilla/popcorn-editor
+
+  - twitter & slack bots, JSON/TSV API & access
+
+---
+# clips
+- associates metadata with program start/end time range
+- little JSON annotations
+- arbitrary start/end
+- auto expands each clip to a "synthetic" document
+  - to elastic search
+- JSONPatch for changes
+- track play counts, some referers
+- allows for _decentralized_ annotations to other IA / research
+
+---
+# clip
+```json
+{
+    "268.1|269.1": {
+        "subject": [
+            "Criminal Activity"
+            "Crime"
+        ],
+        "factcheck": [
+            "http://www.factcheck.org/2016/07/factchecking-trumps-big-speech/"
+        ]
+    },
+    "266.7|267.2": {
+        "ad_id": "PolAd_DonaldTrump_d9dsn",
+        "type": "campaign",
+        "race": "PRES",
+        "cycle": "2016",
+        "message": "pro",
+        "sponsor": [
+            "Republican National Cmte"
+        ],
+        "sponsor_type": "PAC",
+        "subject": [
+            "Job Accomplishments"
+        ],
+        "person": [
+            "Donald Trump"
+        ]
+    },
+    "268.1|269.1": {
+        "collection": [
+            "nancy_pelosi_archive"
+        ],
+        "subject": [
+            "Voting",
+        ],
+    }
+}
 ```
 
-(network not needed after clone)
+
+  HELP US shape our API with your thoughts:
+    - tagging clips with AI metadata or pointers to Decentralized metadata
+    - free service, https, privacy ensured, no personal data extracted
+
 
 ---
-### Say Something
-- keep calm
-- carry on
+# Ergo
+_decentralized research and IA built on top of a stable, untampered, worldwide TV library recordings_
 
----
-### Choices
-
-You can:
-- copy the _index.html_ file to _tech-deck.html_
-   - modify it
-   - put as many 'decks' as you like in this repo
-   - and then open tech-deck.html in your browser
-- or keep cloning/forking to multiple repositories..
-
----
-I like to
-``` bash
-atom README.md
-```
-
-to get nice coloring and edit help/cues from my editor, Atom.
-
----
-<!-- .slide: data-background="https://media.giphy.com/media/Gdjgn0hy8zBRK/giphy.gif" -->
-# Demo Time!
-
----
-### Let's table that discussion
-
-| fruity   | color                    | etc |
-| -------- |:------------------------ |:----|
-| orange   | well, i mean it's orange | tic |
-| banana   | mushy                    | tac |
 
 ---
 <!-- .slide: data-background="https://media.giphy.com/media/q4ICE9wYvOwBG/giphy.gif" -->
-# THE END
+# The End
