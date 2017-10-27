@@ -2,13 +2,17 @@
 
 # TV Archives cracked open - "AI for IA"
 ## Artificial Intelligence for Internet Archive
-### MozFest, London</br>Oct 2017
+### MozFest, London Oct 2017
 
 <small>
   by
   [traceypooh](https://twitter.com/tracey_pooh)
   <a href="https://github.com/traceypooh"><img style="margin:0" src="git.png"/></a>
   <br/>
+</small>
+
+<small>
+  _?_ for key shortcuts
 </small>
 
 ```bash
@@ -23,9 +27,6 @@ git clone https://github.com/traceypooh/mozfest17; open mozfest17/index.html
   <img src="tvlogo-quarter.png" style="position:fixed; bottom:0; left:80%;"/>
 </a>
 
-<small>
-  _?_ for key shortcuts
-</small>
 
 ---
 
@@ -87,6 +88,8 @@ _decentralized research and IA built on top of a stable, untampered, worldwide T
     - Deutsche Welle English
 - twitter and slack bots with results
 - continuous captions feed from CSPAN
+  - https://openedcaptions.com/
+  - https://pietropassarelli.gitbooks.io/textav/projects/opened-captions-service.html
 
 
 ---
@@ -187,7 +190,7 @@ TV clip-based JSON format metadata
       - that hamming distance can be used on pairs
 
 ---
-# tensorflow & training sets
+# TensorFlow & Training
   - https://www.tensorflow.org/tutorials/image_recognition
   - trained CNNs, locally run
   - GoogLeNet Inception general classifier
@@ -199,15 +202,30 @@ TV clip-based JSON format metadata
   - cosine distance comparisons
 
 ---
-# OpenFace implementation of FaceNet
-  - http://cmusatyalab.github.io/openface/demo-3-classifier
-  - similar to tensorflow (Torch..)
-  - 3+ images per person/face
-    - align eyes + nose (nostrils?)
-    - avoid 'overfit'
+# OpenFace
+- implementation of FaceNet https://arxiv.org/abs/1503.03832
+- https://cmusatyalab.github.io/openface/demo-3-classifier
+- similar to tensorflow (Torch..)
+
+---
+# OpenFace Training
+- 3+ images per person/face
+- avoid 'overfit'
+- align eyes + nose (nostrils?)
+<br/>
+<img src="https://archive.org/~tracey/train/__aligned/BrewsterKahle/a.png"/>
+<img src="https://archive.org/~tracey/train/__aligned/BrewsterKahle/d.png"/>
+<img src="https://archive.org/~tracey/train/__aligned/BrewsterKahle/e.png"/>
+<img src="https://archive.org/~tracey/train/__aligned/BrewsterKahle/f.png"/>
+<br/>
+<img src="https://archive.org/~tracey/train/__aligned/TraceyJaquith/a.png"/>
+<img src="https://archive.org/~tracey/train/__aligned/TraceyJaquith/b.png"/>
+<img src="https://archive.org/~tracey/train/__aligned/TraceyJaquith/c.png"/>
+<img src="https://archive.org/~tracey/train/__aligned/TraceyJaquith/f.png"/>
+
 ---
 # Siamese "one shot" CNN recognizers
-  - https://github.com/traceypooh/Facial-Similarity-with-Siamese-Networks-in-Pytorch
+- https://github.com/traceypooh/Facial-Similarity-with-Siamese-Networks-in-Pytorch
 
 ---
 # AI Ethics
