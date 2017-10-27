@@ -1,6 +1,6 @@
 <!doctype html><head><script src="eveal.js"></script></head><body>
 
-# TV Archives cracked open - "AI for IA"
+# TV Archives cracked open "AI for IA"
 ## Artificial Intelligence for Internet Archive
 ### MozFest, London Oct 2017
 
@@ -12,7 +12,8 @@
 </small>
 
 <small>
-  _?_ for key shortcuts
+  https://traceypooh.github.io/mozfest17
+ _?_ for key shortcuts
 </small>
 
 ```bash
@@ -31,47 +32,78 @@ git clone https://github.com/traceypooh/mozfest17; open mozfest17/index.html
 ---
 
 # Gist
-_decentralized research and IA built on top of a stable, untampered, worldwide TV library recordings_
+_decentralized research and AI <br/>
+built on top of a stable, untampered <br/>
+worldwide TV library recordings_
 
 ---
 # Intro to archive.org
 - WayBack Machine
-  - past copies of xxx500B pages/sites xxx
-  - xxx image
+  - past copies of 300B+ pages
+  - 15M books, lendable
+  - ~4M videos, ~4M audio & live concerts
+  - 3M image
+  - 200K software items & emulation (in JS!)
+---
+<a href="https://web.archive.org/web/19961219202222/http://www.apple.com:80/">
+  <img style="height:700px" src="wayback-apple.png"/>
+</a>
+---
+<a href="https://archive.org/details/goodytwoshoes00newyiala">
+  <img style="height:700px" src="bookreader.png"/>
+</a>
+---
+<a href="https://archive.org/details/msdos_Pac-Man_1983">
+  <img style="height:700px" src="software.png"/>
+</a>
+---
+<a href="https://archive.org/details/Sita_Sings_the_Blues">
+  <img style="height:700px" src="av.png"/>
+</a>
 
-- 5M books xxx
-  - xxx BR image
-
-- xxxM videos, xxxm M audio & live concerts
-  - xxx image
-
-- Software emulation
-  - xxx image
-
+---
 # Library!
 - Absolute browser Privacy
   - no personal data or IP addresses extracted.
 - Validation & nontampering
   - keep original versions with 2+ checksums and logs
 ```xml
-<file>xxx</file>
+<file name="commute.mp4" source="derivative">
+<title>commute</title>
+<format>h.264</format>
+<original>commute.avi</original>
+<mtime>1325973601</mtime>
+<size>11919082</size>
+<md5>ff17ed66e7db5693dd208dd6ac488ff8</md5>
+<crc32>ad1df03a</crc32>
+<sha1>e9f9de8379cd25653d487ab30d198fc61a050091</sha1>
+<length>115.61</length>
+<height>480</height>
+<width>640</width>
+</file>
 ```
-  - external blockchain of proofs of file mod times and checksums
-    - xxx name?
-
+---
+## External Blockchain of Proofs
+### of file mod times / checksums
+- <a href="https://opentimestamps.org/internet-archive">
+  OpenTimestamps</a>
+- uses SHA-1 and Merkle trees
+- by Peter Todd - <a href="https://petertodd.org/2017/carbon-dating-the-internet-archive-with-opentimestamps">
+  blog</a>
+- _brand new!_
 
 ---
 # archive.org/tv
-  - recording 50 - 100 channels
-    - 24 x 7
-    - around the world
-    - since 2000
-  - 2 million news shows
-  - search captions/metadata
-  - new Trump and Congress subsets
-  - citable reference clips
-  - Popcorn editing clips
-  - for AI experiments
+- recording 50 - 100 channels
+  - 24 x 7
+  - around the world
+  - since 2000
+- _2 million+ news shows_
+- search captions/metadata
+- new Trump and Congress subsets
+- citable reference clips
+- Popcorn editing clips
+- for AI experiments
 
 ---
 # Artificial Intelligence
@@ -191,15 +223,15 @@ TV clip-based JSON format metadata
 
 ---
 # TensorFlow & Training
-  - https://www.tensorflow.org/tutorials/image_recognition
-  - trained CNNs, locally run
-  - GoogLeNet Inception general classifier
-  - retrainable / customizable
-    - redo 'top layer'
-    - https://www.tensorflow.org/tutorials/image_retraining
-  - 2048 multi-byte vectors
-  - iOS smaller single-byte vectors
-  - cosine distance comparisons
+- https://www.tensorflow.org/tutorials/image_recognition
+- trained CNNs, locally run
+- GoogLeNet Inception general classifier
+- retrainable / customizable
+  - redo 'top layer'
+  - https://www.tensorflow.org/tutorials/image_retraining
+- 2048 multi-byte vectors
+- iOS smaller single-byte vectors
+- cosine distance comparisons
 
 ---
 # OpenFace
@@ -230,6 +262,10 @@ TV clip-based JSON format metadata
 ---
 # AI Ethics
 - face tracking only public figures
+- https://www.macrumors.com/2017/10/25/iti-apple-google-ai-policy-principles/
+  - xxx
+  - xxx
+  - xxx
 - open discussion
 
 ---
@@ -239,24 +275,24 @@ TV clip-based JSON format metadata
 - google translate
 
 ---
-IA TV as reference news archive
-  - recording ~60 channels 24x7 since 2000
-  - 2m+ US news shows
-  - special collection subsets (trump and admin, US congress)
-  - for validation of nontampering:
-    - we keep the original broadcast version (alongside web-friendly video)
-    - we keep checksums and logs/provenance
-    - absolute browser Privacy (client IP addresses one-way hashed)
+# IA TV as reference news archive
+- recording ~60 channels 24x7 since 2000
+- 2m+ US news shows
+- special collection subsets (trump and admin, US congress)
+- for validation of nontampering:
+  - we keep the original broadcast version (alongside web-friendly video)
+  - we keep checksums and logs/provenance
+  - absolute browser Privacy (client IP addresses one-way hashed)
 
-  - caption & metadata based searching
-  - chyron scanning OCR (editorial content?)
-  - facial detection
-  - caption correction & alignment
-  - popcorn editing & mashups of clips
-    - https://archive.org/pop
-    - https://github.com/mozilla/popcorn-editor
+- caption & metadata based searching
+- chyron scanning OCR (editorial content?)
+- facial detection
+- caption correction & alignment
+- popcorn editing & mashups of clips
+  - https://archive.org/pop
+  - https://github.com/mozilla/popcorn-editor
 
-  - twitter & slack bots, JSON/TSV API & access
+- twitter & slack bots, JSON/TSV API & access
 
 ---
 # clips
@@ -310,16 +346,14 @@ IA TV as reference news archive
 }
 ```
 
-
-  HELP US shape our API with your thoughts:
-    - tagging clips with AI metadata or pointers to Decentralized metadata
-    - free service, https, privacy ensured, no personal data extracted
-
+---
+# HELP US shape our API with your thoughts
+- tagging clips with AI metadata or pointers to Decentralized metadata
+- free service, https, privacy ensured, no personal data extracted
 
 ---
 # Ergo
-_decentralized research and IA built on top of a stable, untampered, worldwide TV library recordings_
-
+_decentralized research and AI built on top of a stable, untampered, worldwide TV library recordings_
 
 ---
 <!-- .slide: data-background="https://media.giphy.com/media/q4ICE9wYvOwBG/giphy.gif" -->
