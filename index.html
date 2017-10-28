@@ -1,6 +1,6 @@
 <!doctype html><head><script src="eveal.js"></script></head><body>
 
-# TV Archives cracked open "AI for IA"
+# TV Archives cracked Open "AI for IA"
 ## Artificial Intelligence for Internet Archive
 ### MozFest, London Oct 2017
 
@@ -33,8 +33,8 @@ git clone https://github.com/traceypooh/mozfest17; open mozfest17/index.html
 
 # Gist
 _decentralized research and AI <br/>
-built on top of a stable, untampered <br/>
-worldwide TV library recordings_
+built on top of <br/>
+a library of stable, untampered worldwide TV recordings_
 
 ---
 # Intro to archive.org
@@ -42,7 +42,7 @@ worldwide TV library recordings_
   - past copies of 300B+ pages
   - 15M books, lendable
   - ~4M videos, ~4M audio & live concerts
-  - 3M image
+  - 3M images
   - 200K software items & emulation (in JS!)
 ---
 <a href="https://web.archive.org/web/19961219202222/http://www.apple.com:80/">
@@ -64,7 +64,7 @@ worldwide TV library recordings_
 ---
 # Library!
 - Absolute browser Privacy
-  - no personal data or IP addresses extracted.
+  - no personal data or IP addresses extracted
 - Validation & nontampering
   - keep original versions with 2+ checksums and logs
 ```xml
@@ -99,28 +99,41 @@ worldwide TV library recordings_
   - around the world
   - since 2000
 - _2 million+ news shows_
-- search captions/metadata
-- new Trump and Congress subsets
+- <a href="https://archive.org/tv?q=mozilla+firefox">search captions</a>/metadata
+- new Trump Administration and Congress subsets
 - citable reference clips
-- Popcorn editing clips
+- <a href="https://archive.org/pop">Popcorn</a> editing/mashup clips
 - for AI experiments
 
 ---
 # Artificial Intelligence
-- text: chyron ("lower third") scanning OCR
-- image: public officials facial detection
-- audio: fingerprints
-  - audfprint
-    - free/open like shazam
-- text: caption correction & alignment
-  - OCR of DVB-S
+- _text_:
+  - chyron ("lower third") scanning OCR (Third Eye)
+  - caption alignment
+  - OCR captions from DVB-S
     - BBC News
-  - STT/ASR
+  - speech to text (VoiceBase)
     - Al Jazeera English
     - Deutsche Welle English
-- twitter and slack bots with results
+- _image_:
+  - public officials facial detection (Faceomatic)
+
+---
+# Artificial Intelligence
+- _audio_:
+  - fingerprinting
+    - <a href="https://github.com/dpwe/audfprint">audfprint</a> - free/open like shazam
+    - <a href="https://politicalAdArchive.org">political Ad tracking</a>
+    - <a href="https://github.com/slifty/tvarchive-duplitron">Duplitron 5000</a>
+
+---
+# Public Feeds
+- twitter bots & TSV
+  - <a href="https://archive.org/services/third-eye.php">Third Eye</a>
+- slack bot
+  - <a href="https://blog.archive.org/2017/07/19/introducing-face-o-matic/">Faceomatic</a>
 - continuous captions feed from CSPAN
-  - https://openedcaptions.com/
+  - https://openedcaptions.com
   - https://pietropassarelli.gitbooks.io/textav/projects/opened-captions-service.html
 
 
@@ -189,10 +202,60 @@ worldwide TV library recordings_
 - Vox determined Puerto Rico was paid little attention by Fox News
   - https://vox.com/2017/10/2/16401614/fox-news-puerto-rico-charts
 - audio fingerprints
-  - presented keynote paper on CSPAN floor speeches and vocal pitch (UIowa)
+  - presented keynote paper on<br/> <a href="http://www.brycejdietrich.com/files/dietrich_schultz_television.pdf">CSPAN floor speeches and vocal pitch</a> <br/>Bryce Dietrich, UIowa
   - discovered 375K political Ads
   - find sound bites of speeches
-- Faceomatic - find appearances of US Govt officials in TV (facial recognition)
+
+---
+# clips
+- little JSON annotations
+- associate metadata to program start/end time range
+- auto expands each clip to a "synthetic" document
+  - to elastic search
+- JSONPatch for changes
+- track play counts, some referers
+- allows for _decentralized_ annotations to other IA / research
+
+---
+# clip
+```json
+{
+    "268.1|269.1": {
+        "subject": [
+            "Criminal Activity"
+            "Crime"
+        ],
+        "factcheck": [
+            "http://www.factcheck.org/2016/07/factchecking-trumps-big-speech/"
+        ]
+    },
+    "266.7|267.2": {
+        "ad_id": "PolAd_DonaldTrump_d9dsn",
+        "type": "campaign",
+        "race": "PRES",
+        "cycle": "2016",
+        "message": "pro",
+        "sponsor": [
+            "Republican National Cmte"
+        ],
+        "sponsor_type": "PAC",
+        "subject": [
+            "Job Accomplishments"
+        ],
+        "person": [
+            "Donald Trump"
+        ]
+    },
+    "268.1|269.1": {
+        "collection": [
+            "nancy_pelosi_archive"
+        ],
+        "subject": [
+            "Voting",
+        ],
+    }
+}
+```
 
 ---
 # Where We're Going
@@ -202,16 +265,9 @@ worldwide TV library recordings_
 - non-consumptive use
 
 
-xxx
-We can store and search arbitrary metadata (eg: <detected-person>..) as a JSON "clip" with start/end time ranges; can track play counts, referers/embeders.
-HELP US shape our API to play with TV, tag clips with metadata or pointers to Decentralized metadata, AI ideas, and more!
-
-
-xxx
-audio fingerprinting (Duplitron)
-face detection and tracking of public figures (Faceomatic)
-TV clip-based JSON format metadata
-# [part 2] "There Goes 2 Weeks -- deep dive into image matching and facial recognition"
+---
+## [Part 2] "There Goes 2 Weeks"
+## deep dive into Image Matching and<br/> Facial Recognition
   - slide on Rik & ideas w/ link to Decentralized talk
   - 3 concat vectors for shot clustering and scene detection
     - .. for Ad insertion!
@@ -269,91 +325,28 @@ TV clip-based JSON format metadata
 - open discussion
 
 ---
-# Demo Time xxx (cable? xxx; rebuild to phone xxx!)
-- miniARchive
+# Demo Time
+<!-- .slide: data-background="https://media.giphy.com/media/F3RKa517VBRg4/giphy.gif" -->
+
+---
 - tensorflow
 - google translate
+- miniARchive
+
 
 ---
-# IA TV as reference news archive
-- recording ~60 channels 24x7 since 2000
-- 2m+ US news shows
-- special collection subsets (trump and admin, US congress)
-- for validation of nontampering:
-  - we keep the original broadcast version (alongside web-friendly video)
-  - we keep checksums and logs/provenance
-  - absolute browser Privacy (client IP addresses one-way hashed)
-
-- caption & metadata based searching
-- chyron scanning OCR (editorial content?)
-- facial detection
-- caption correction & alignment
-- popcorn editing & mashups of clips
-  - https://archive.org/pop
-  - https://github.com/mozilla/popcorn-editor
-
-- twitter & slack bots, JSON/TSV API & access
-
----
-# clips
-- associates metadata with program start/end time range
-- little JSON annotations
-- arbitrary start/end
-- auto expands each clip to a "synthetic" document
-  - to elastic search
-- JSONPatch for changes
-- track play counts, some referers
-- allows for _decentralized_ annotations to other IA / research
-
----
-# clip
-```json
-{
-    "268.1|269.1": {
-        "subject": [
-            "Criminal Activity"
-            "Crime"
-        ],
-        "factcheck": [
-            "http://www.factcheck.org/2016/07/factchecking-trumps-big-speech/"
-        ]
-    },
-    "266.7|267.2": {
-        "ad_id": "PolAd_DonaldTrump_d9dsn",
-        "type": "campaign",
-        "race": "PRES",
-        "cycle": "2016",
-        "message": "pro",
-        "sponsor": [
-            "Republican National Cmte"
-        ],
-        "sponsor_type": "PAC",
-        "subject": [
-            "Job Accomplishments"
-        ],
-        "person": [
-            "Donald Trump"
-        ]
-    },
-    "268.1|269.1": {
-        "collection": [
-            "nancy_pelosi_archive"
-        ],
-        "subject": [
-            "Voting",
-        ],
-    }
-}
-```
-
----
-# HELP US shape our API with your thoughts
-- tagging clips with AI metadata or pointers to Decentralized metadata
-- free service, https, privacy ensured, no personal data extracted
+# HELP Shape US with your thoughts
+- extend/shape our APIs
+- AI ideas
+- research, visualizations
+- tag clips with AI metadata or pointers to Decentralized metadata
+- more!
 
 ---
 # Ergo
-_decentralized research and AI built on top of a stable, untampered, worldwide TV library recordings_
+_decentralized research and AI <br/>
+built on top of <br/>
+a library of stable, untampered worldwide TV recordings_
 
 ---
 <!-- .slide: data-background="https://media.giphy.com/media/q4ICE9wYvOwBG/giphy.gif" -->
