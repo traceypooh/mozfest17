@@ -116,7 +116,7 @@ a library of stable, untampered worldwide TV recordings_
     - Al Jazeera English
     - Deutsche Welle English
 - _image_:
-  - public officials facial detection (Faceomatic)
+  - public officials facial detection<br/> (Faceomatic <-- Matroid <-- FaceNet)
 
 ---
 # Artificial Intelligence
@@ -189,7 +189,7 @@ a library of stable, untampered worldwide TV recordings_
 # Chyron filtering
 - tesseract OCR
   - free; errors
-- simhash
+- <a href="http://manpages.ubuntu.com/manpages/man1/simhash.1.html">simhash</a>
   - groups 'nearly the same'
     - character flips
     - word off in time
@@ -268,11 +268,47 @@ a library of stable, untampered worldwide TV recordings_
 ---
 ## [Part 2] "There Goes 2 Weeks"
 ## deep dive into Image Matching and<br/> Facial Recognition
-  - slide on Rik & ideas w/ link to Decentralized talk
-  - 3 concat vectors for shot clustering and scene detection
-    - .. for Ad insertion!
-- pixel diff algorithms
-- perceptual hashing
+
+<br/>
+<br/>
+<small><i>An imposter does not have Imposter Syndrome</i></small>
+
+---
+# CNNs
+- Convolutional Neural Network
+  - filtered neural network
+- each layer uses output from prior layer as input
+- instead of rule-based learning, use classified datasets to learn
+- multi-node connections (but not "fully connected")
+- "data squashers"
+
+---
+# CNN Example
+- feed in image
+- node looking for eyelash
+- node looking for iris
+  - could feed to node looking for eye
+- meanwhile... nose node
+  - all feed to face recognizer node
+  - could feed to "is this "
+
+
+---
+# Guru
+Rik Heijdens from jwplayer
+- <a href="https://www.youtube.com/watch?v=oGP7TfaRVlM">Demuxed 2017 talk</a>
+- feed in video - for each _shot_, make 3 vectors:
+  - _image_ Inception CNN (tensorflow)
+  - _audio_ CNN spectrogram
+  - _text_ transcripts/STT into Word2Vec
+- concat vectors, compare (cosine similarity), and graph
+- ... yields _scene detection_
+- all just for ideal Ad insertion!
+
+---
+# Image Matching
+- pixel diff algorithms (MAE, RMSE, MSE)
+- perceptual hashing phash.org
   - show full => 8x8 grayscale faces xxx
     - explain _then_ convolved (?) to 64bit number
       - that hamming distance can be used on pairs
@@ -283,15 +319,16 @@ a library of stable, untampered worldwide TV recordings_
 - trained CNNs, locally run
 - GoogLeNet Inception general classifier
 - retrainable / customizable
-  - redo 'top layer'
+  - redo 'top layer' (Rik idea)
   - https://www.tensorflow.org/tutorials/image_retraining
-- 2048 multi-byte vectors
+- 2048 multi-byte vectors (floats)
 - iOS smaller single-byte vectors
 - cosine distance comparisons
+- can just compare vectors (and ignore readable classification labels (Rik idea))
 
 ---
 # OpenFace
-- implementation of FaceNet https://arxiv.org/abs/1503.03832
+- implementation of <a href="https://arxiv.org/abs/1503.03832">FaceNet</a>
 - https://cmusatyalab.github.io/openface/demo-3-classifier
 - similar to tensorflow (Torch..)
 
@@ -313,29 +350,38 @@ a library of stable, untampered worldwide TV recordings_
 
 ---
 # Siamese "one shot" CNN recognizers
-- https://github.com/traceypooh/Facial-Similarity-with-Siamese-Networks-in-Pytorch
+- Rik idea
+- _differentiate_ instead of _classify_
+- learns similarity of 2 inputs
+<img src="https://cdn-images-1.medium.com/max/1600/1*tzGB6D97tHWR_-NJ8FKknw.jpeg"/>
+- <a href="https://github.com/traceypooh/Facial-Similarity-with-Siamese-Networks-in-Pytorch">repo / py notebook</a>
+<img src="https://cdn-images-1.medium.com/max/1200/1*XzVUiq-3lYFtZEW3XfmKqg.jpeg"/>
 
 ---
 # AI Ethics
 - face tracking only public figures
 - https://www.macrumors.com/2017/10/25/iti-apple-google-ai-policy-principles/
-  - xxx
-  - xxx
-  - xxx
+  - government regulation & access caution
+  - public/private partnerships, diversity/inclusion++
+  - preserve human dignity, rights, freedoms
+  - min risk to humans;  human control
+  - large datasets;  avoid harmful bias
 - open discussion
+
 
 ---
 # Demo Time
 <!-- .slide: data-background="https://media.giphy.com/media/F3RKa517VBRg4/giphy.gif" -->
 
 ---
+- Siamese network
+- <a href="https://www.youtube.com/watch?v=Y94pLw9X2yY">miniARchive</a>
 - tensorflow
 - google translate
-- miniARchive
 
 
 ---
-# HELP Shape US with your thoughts
+# help Shape US with YOUR Thoughts
 - extend/shape our APIs
 - AI ideas
 - research, visualizations
