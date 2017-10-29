@@ -308,10 +308,37 @@ Rik Heijdens from jwplayer
 ---
 # Image Matching
 - pixel diff algorithms (MAE, RMSE, MSE)
-- perceptual hashing phash.org
-  - show full => 8x8 grayscale faces xxx
-    - explain _then_ convolved (?) to 64bit number
-      - that hamming distance can be used on pairs
+- perceptual hashing pHash.org
+  - image => _8x8 grayscale_
+  - convolve to 8x8 image with DCT
+  - reduce to _64bit_ number
+  - hamming distance Int64 pairs
+
+---
+### pHash - to gray 8x8
+<style> .hashes img { width:150px; } </style>
+<div class="hashes">
+  <img src="hash-images/AaronSwartz.png">
+  <img src="hash-images/AaronXimm.png">
+  <img src="hash-images/AlexisRossi.png">
+  <img src="hash-images/BrewsterKahle.png">
+  <img src="hash-images/JudeCohelo.png">
+  <img src="hash-images/TraceyJaquith.png">
+  <br/>
+  <img src="hash-images/AaronSwartz.png.jpg">
+  <img src="hash-images/AaronXimm.png.jpg">
+  <img src="hash-images/AlexisRossi.png.jpg">
+  <img src="hash-images/BrewsterKahle.png.jpg">
+  <img src="hash-images/JudeCohelo.png.jpg">
+  <img src="hash-images/TraceyJaquith.png.jpg">
+  <br/>
+  <img src="hash-images/AaronSwartz-gray.png">
+  <img src="hash-images/AaronXimm-gray.png">
+  <img src="hash-images/AlexisRossi-gray.png">
+  <img src="hash-images/BrewsterKahle-gray.png">
+  <img src="hash-images/JudeCohelo-gray.png">
+  <img src="hash-images/TraceyJaquith-gray.png">
+</div>
 
 ---
 # TensorFlow & Training
@@ -355,17 +382,18 @@ Rik Heijdens from jwplayer
 - learns similarity of 2 inputs
 <img src="https://cdn-images-1.medium.com/max/1600/1*tzGB6D97tHWR_-NJ8FKknw.jpeg"/>
 - <a href="https://github.com/traceypooh/Facial-Similarity-with-Siamese-Networks-in-Pytorch">repo / py notebook</a>
-<img src="https://cdn-images-1.medium.com/max/1200/1*XzVUiq-3lYFtZEW3XfmKqg.jpeg"/>
+---
+<img style="max-height:650px" src="https://cdn-images-1.medium.com/max/1200/1*XzVUiq-3lYFtZEW3XfmKqg.jpeg"/>
 
 ---
 # AI Ethics
 - face tracking only public figures
-- https://www.macrumors.com/2017/10/25/iti-apple-google-ai-policy-principles/
-  - government regulation & access caution
-  - public/private partnerships, diversity/inclusion++
+- https://www.itic.org/resources/AI-Policy-Principles-FullReport2.pdf
+  - min. government regulation & access
+  - public/private partner;  diversity/inclusion++
   - preserve human dignity, rights, freedoms
-  - min risk to humans;  human control
-  - large datasets;  avoid harmful bias
+  - min. risk to humans;  human control
+  - large datasets -- avoid harmful bias
 - open discussion
 
 
@@ -374,9 +402,10 @@ Rik Heijdens from jwplayer
 <!-- .slide: data-background="https://media.giphy.com/media/F3RKa517VBRg4/giphy.gif" -->
 
 ---
+# Demo Time
 - Siamese network
 - <a href="https://www.youtube.com/watch?v=Y94pLw9X2yY">miniARchive</a>
-- tensorflow
+- <a href="https://www.tensorflow.org/mobile/">tensorflow</a>
 - google translate
 
 
